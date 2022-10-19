@@ -11,5 +11,6 @@ spring:
   h2:
     console.enabled: true
   banner:
-    location: classpath:/path/to/banner/banner.txt
+    location: classpath:banner.txt
 # TODO Add Profiles For Development and Testing
+
