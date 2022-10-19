@@ -1,0 +1,342 @@
+{
+	"info": {
+		"_postman_id": "f0e6d57b-becc-49f7-a1d9-4b8df39235c3",
+		"name": "TodoList - Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23807750"
+	},
+	"item": [
+		{
+			"name": "first Todo-List",
+			"item": [
+				{
+					"name": "should run",
+					"item": []
+				},
+				{
+					"name": "should throw exception",
+					"item": [
+						{
+							"name": "Get Todo-List with wrong ID",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{mainRoute}}/get/:id",
+									"host": [
+										"{{mainRoute}}"
+									],
+									"path": [
+										"get",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Todo-List with wrong ID",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "\"third Todo-List updated\"",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{mainRoute}}/updateName/:id",
+									"host": [
+										"{{mainRoute}}"
+									],
+									"path": [
+										"updateName",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Todo-List with wrong ID",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{mainRoute}}/delete/:id",
+									"host": [
+										"{{mainRoute}}"
+									],
+									"path": [
+										"delete",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Add Todo List",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{mainRoute}}/add/:name",
+							"host": [
+								"{{mainRoute}}"
+							],
+							"path": [
+								"add",
+								":name"
+							],
+							"variable": [
+								{
+									"key": "name",
+									"value": "first Todo-List"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get first Todo-List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{mainRoute}}/get/:id",
+							"host": [
+								"{{mainRoute}}"
+							],
+							"path": [
+								"get",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Todo-List with wrong ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{mainRoute}}/get/:id",
+							"host": [
+								"{{mainRoute}}"
+							],
+							"path": [
+								"get",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All active Todo-Lists",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{mainRoute}}/all/:active",
+							"host": [
+								"{{mainRoute}}"
+							],
+							"path": [
+								"all",
+								":active"
+							],
+							"variable": [
+								{
+									"key": "active",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All INactive Todo-Lists",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{mainRoute}}/all/:active",
+							"host": [
+								"{{mainRoute}}"
+							],
+							"path": [
+								"all",
+								":active"
+							],
+							"variable": [
+								{
+									"key": "active",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Todo List Name",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\"first Todo-List updated\"",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{mainRoute}}/updateName/:id",
+							"host": [
+								"{{mainRoute}}"
+							],
+							"path": [
+								"updateName",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Todo List Active",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"active\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{mainRoute}}/updateActive/:id",
+							"host": [
+								"{{mainRoute}}"
+							],
+							"path": [
+								"updateActive",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Todo-List",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{mainRoute}}/delete/:id",
+							"host": [
+								"{{mainRoute}}"
+							],
+							"path": [
+								"delete",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "mainRoute",
+			"value": "localhost:8080/api/v1/todoLists",
+			"type": "string"
+		}
+	]
+}
