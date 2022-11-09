@@ -1,5 +1,6 @@
 package com.grubengraeber.todo.service;
 
+import com.grubengraeber.todo.exception.exceptions.EmptyNameException;
 import com.grubengraeber.todo.exception.exceptions.NoListFoundException;
 import com.grubengraeber.todo.model.TodoList;
 import com.grubengraeber.todo.repository.TodoListRepository;
@@ -17,6 +18,9 @@ public class TodoListService {
     private final TodoListRepository todoListRepository;
 
     public void addList(String name) {
+        if (name.equals("")) {
+            throw new EmptyNameException();
+        }
         TodoList todoList = new TodoList();
         todoList.setName(name);
         todoList.setActive(true);
@@ -38,6 +42,9 @@ public class TodoListService {
     }
 
     public void updateName(long id, String newName) {
+        if (newName.equals("")) {
+            throw new EmptyNameException();
+        }
         Optional<TodoList> optionalTodoList = todoListRepository.findById(id);
         TodoList todoList = optionalTodoList.orElseThrow(() -> new NoListFoundException(id));
         todoList.setName(newName);

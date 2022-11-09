@@ -12,6 +12,6 @@ spring:
     console.enabled: true
   banner:
     location: classpath:banner.txt
-# TODO Add Profiles For Development and Testing
+# TODO switch to Postgres
 # TODO Create Docker configuration file
 # TODO Create CI pipeline with automated tests

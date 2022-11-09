@@ -24,13 +24,9 @@ public class NotFoundExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler({NoListFoundException.class, NoListItemFoundException.class})
     public ResponseEntity<Object> handleException(RuntimeException exception, WebRequest webRequest) {
-        /*String message = exception instanceof NoListFoundException ? "No List " : "No List Item ";
-        message += " with ID: " + Arrays.toString(webRequest.getParameterMap().get("id")) + " found!";*/
-
         Map<String, Object> body = new LinkedHashMap<>();
         body.put("timestamp", LocalDateTime.now());
         body.put("message", exception.getMessage());
-
         return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
     }
 
@@ -43,15 +39,12 @@ public class NotFoundExceptionHandler extends ResponseEntityExceptionHandler {
         Map<String, Object> body = new LinkedHashMap<>();
         body.put("timestamp", LocalDate.now());
         body.put("status", status.value());
-
         List<String> errors = ex.getBindingResult()
                 .getFieldErrors()
                 .stream()
                 .map(DefaultMessageSourceResolvable::getDefaultMessage)
                 .collect(Collectors.toList());
-
         body.put("errors", errors);
-
         return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
     }
 }
