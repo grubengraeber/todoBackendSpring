@@ -5,6 +5,7 @@ import com.grubengraeber.todo.exception.exceptions.NoListFoundException;
 import com.grubengraeber.todo.model.TodoList;
 import com.grubengraeber.todo.repository.TodoListRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -13,6 +14,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class TodoListService {
 
     private final TodoListRepository todoListRepository;
@@ -26,6 +28,7 @@ public class TodoListService {
         todoList.setActive(true);
         todoList.setItems(Collections.emptyList());
         todoListRepository.save(todoList);
+        log.info("Adding List with name: '" + name + "' was successful.");
     }
 
     public TodoList getById(long id) {
@@ -49,6 +52,7 @@ public class TodoListService {
         TodoList todoList = optionalTodoList.orElseThrow(() -> new NoListFoundException(id));
         todoList.setName(newName);
         todoListRepository.save(todoList);
+        log.info("Updating List with new name: '" + newName + "' was successful.");
     }
 
     public void updateActive(long id, boolean active) {
@@ -56,6 +60,7 @@ public class TodoListService {
         TodoList todoList = optionalTodoList.orElseThrow(() -> new NoListFoundException(id));
         todoList.setActive(active);
         todoListRepository.save(todoList);
+        log.info("Updating List with new active-status: '" + active + "' was successful.");
     }
 
     public List<TodoList> getAll(boolean active) {
